@@ -1,0 +1,617 @@
+/* ==========================================================================
+   FUTURISTIC 3D BLUE, WHITE, BLACK & GRAY DESIGN SYSTEM - NIKHIL RANJAN PASAYAT PORTFOLIO
+   Strict 4 Color Families: White (#FFFFFF), Black (#080B10), Blue (#3B82F6), Gray (#9CA3AF)
+   ========================================================================== */
+
+:root {
+  /* Core Color Tokens */
+  --color-white: #FFFFFF;
+  --color-black: #080B10;
+  --color-charcoal: #111318;
+  --color-surface-elevated: #161922;
+
+  --color-blue: #3B82F6;
+  --color-blue-deep: #1D4ED8;
+  --color-blue-light: #93C5FD;
+  --color-blue-hover: #60A5FA;
+  --color-blue-glow: rgba(59, 130, 246, 0.3);
+
+  --color-gray: #9CA3AF;
+  --color-gray-light: #D1D5DB;
+  --color-gray-dark: #374151;
+  --color-gray-muted: #6B7280;
+  --color-gray-border: rgba(156, 163, 175, 0.15);
+
+  /* Primary & Surface Colors */
+  --bg-dark: #080B10;
+  --bg-surface: #111318;
+  --bg-surface-elevated: #161922;
+  --bg-card: rgba(17, 19, 24, 0.82);
+  --bg-glass: rgba(14, 16, 21, 0.75);
+
+  /* Accent Colors - Blue Palette */
+  --accent-blue: #3B82F6;
+  --accent-blue-hover: #60A5FA;
+  --accent-blue-deep: #1D4ED8;
+  --accent-blue-light: #93C5FD;
+
+  /* Typography Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(156, 163, 175, 0.2);
+  --border-blue: rgba(59, 130, 246, 0.35);
+  --border-blue-strong: rgba(59, 130, 246, 0.7);
+
+  /* Glows */
+  --glow-blue-subtle: 0 0 24px rgba(59, 130, 246, 0.25);
+  --glow-blue-strong: 0 0 42px rgba(59, 130, 246, 0.55);
+
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-dark);
+}
+
+/* ==========================================================================
+   CUSTOM CHARCOAL & BLUE SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080B10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3B82F6, #1D4ED8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60A5FA;
+}
+
+/* ==========================================================================
+   INTERACTIVE ELEMENTS & BUTTON HOVERS
+   ========================================================================== */
+
+button {
+  font-family: inherit;
+}
+
+.hover-elevate {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-elevate:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 28px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* ==========================================================================
+   ANIMATIONS & KEYFRAMES
+   ========================================================================== */
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(0.98);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scanning laser bar on portrait */
+@keyframes scanLaser {
+  0% {
+    top: 6%;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    top: 92%;
+    opacity: 0.2;
+  }
+}
+
+.portrait-scan-laser {
+  animation: scanLaser 3.4s ease-in-out infinite alternate;
+}
+
+/* Mouse scroll indicator dot animation */
+@keyframes scrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(12px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.scroll-dot-anim {
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+/* Floating Elements Keyframes */
+@keyframes floatAnim1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+@keyframes floatAnim2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.8deg);
+  }
+}
+
+@keyframes floatAnim3 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.float-anim-1 {
+  animation: floatAnim1 4.5s ease-in-out infinite;
+}
+
+.float-anim-2 {
+  animation: floatAnim2 5.2s ease-in-out infinite;
+}
+
+.float-anim-3 {
+  animation: floatAnim3 4.8s ease-in-out infinite;
+}
+
+/* 3D Character Container Levitation Animation */
+@keyframes characterLevitate {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.character-float-anim {
+  animation: characterLevitate 5s ease-in-out infinite;
+}
+
+.character-stage-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.character-stage-card:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(59, 130, 246, 0.4) !important;
+  border-color: rgba(59, 130, 246, 0.7) !important;
+}
+
+/* ==========================================================================
+   HOLOGRAPHIC ORBITAL RING ANIMATIONS
+   ========================================================================== */
+
+@keyframes orbitSpinCW {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinCCW {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.orbital-ring-outer {
+  animation: orbitSpinCW 24s linear infinite;
+  transform-origin: center center;
+}
+
+.orbital-ring-mid {
+  animation: orbitSpinCCW 16s linear infinite;
+  transform-origin: center center;
+}
+
+.orbital-ring-inner {
+  animation: orbitSpinCW 10s linear infinite;
+  transform-origin: center center;
+}
+
+.hero-float-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ==========================================================================
+   3D HOLOGRAPHIC CUBE ANIMATIONS
+   ========================================================================== */
+
+@keyframes cubeSpinSlow {
+  0% {
+    transform: rotateX(18deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(18deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cubeSpinRev {
+  0% {
+    transform: rotateX(-22deg) rotateY(360deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-22deg) rotateY(0deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes cubeBob1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes cubeBob2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(11px);
+  }
+}
+
+.cube-container {
+  position: absolute;
+  perspective: 700px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.cube-3d {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.cube-3d-slow {
+  animation: cubeSpinSlow 16s linear infinite;
+}
+
+.cube-3d-rev {
+  animation: cubeSpinRev 13s linear infinite;
+}
+
+.cube-bob-1 {
+  animation: cubeBob1 5.5s ease-in-out infinite;
+}
+
+.cube-bob-2 {
+  animation: cubeBob2 6.5s ease-in-out infinite;
+}
+
+.cube-face {
+  position: absolute;
+  box-sizing: border-box;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.7);
+  box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.25), 0 0 12px rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
+}
+
+.cube-face-light-blue {
+  background: rgba(147, 197, 253, 0.1);
+  border-color: rgba(147, 197, 253, 0.75);
+  box-shadow: inset 0 0 10px rgba(147, 197, 253, 0.25), 0 0 12px rgba(147, 197, 253, 0.3);
+}
+
+.hero-float-card:hover {
+  transform: translateY(-4px) scale(1.04) !important;
+  border-color: #3B82F6 !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Canvas Fallback Grid for Non-WebGL Devices */
+.canvas-fallback-grid {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(147, 197, 253, 0.08) 0%, transparent 60%),
+              #080B10;
+  position: absolute;
+  inset: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE NAVIGATION & LAYOUT BREAKPOINTS
+   ========================================================================== */
+
+@media (min-width: 1280px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .motion-label-text {
+    display: inline !important;
+  }
+
+  .desktop-nav button {
+    padding-inline: 10px !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  .motion-label-text {
+    display: none;
+  }
+}
+
+/* Hero Floating Panels Responsive Layout */
+@media (min-width: 1024px) {
+  .desktop-floating-panels {
+    display: block !important;
+  }
+  .mobile-floating-panels {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-floating-panels {
+    display: none !important;
+  }
+  .mobile-floating-panels {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 540px !important;
+    margin: 1.5rem auto 0 !important;
+  }
+  .navbar-inner {
+    padding-inline: 1.25rem !important;
+  }
+
+  #hero {
+    min-height: auto !important;
+    padding-top: 6.5rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .hero-scroll-cue {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1179px) {
+  .scroll-spy-rail {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  section[id] {
+    padding: 3.5rem 1.25rem !important;
+  }
+
+  #projects {
+    padding-block: 4rem !important;
+  }
+
+  section[id] div[style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .hero-badges-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .section-heading-container {
+    margin-bottom: 2.25rem !important;
+  }
+
+  .navbar-actions {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-inner {
+    height: 64px !important;
+    padding-inline: 1rem !important;
+  }
+
+  .navbar-brand-name {
+    font-size: 0.8rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .navbar-social-link {
+    display: none !important;
+  }
+
+  .navbar-motion-toggle {
+    display: none !important;
+  }
+
+  .mobile-nav-drawer {
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+  }
+
+  section[id] {
+    padding: 3rem 1rem !important;
+  }
+
+  #projects {
+    padding-block: 3.5rem !important;
+  }
+
+  #hero h1 {
+    font-size: clamp(2rem, 7.5vw, 3rem) !important;
+  }
+
+  .hero-orbit-arena {
+    width: min(320px, 92vw) !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4;
+  }
+
+  .character-stage-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 17 / 23;
+  }
+
+  .section-heading-container h2 {
+    font-size: clamp(1.75rem, 6.5vw, 2.25rem) !important;
+  }
+
+  .section-heading-container > p {
+    font-size: 0.92rem !important;
+  }
+
+  footer {
+    padding: 2.75rem 1rem 1.75rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-inner {
+    padding-inline: 0.75rem !important;
+  }
+
+  .navbar-brand-name {
+    font-size: 0.72rem !important;
+  }
+
+  .hero-badges-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
